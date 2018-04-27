@@ -11,7 +11,12 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 public class YrImportApplication {
 	private static boolean importFile = false;
 	private static boolean parseFile = false;
+	private static boolean copyFileToServer = false;
 	
+	public static boolean isCopyFileToServer() {
+		return copyFileToServer;
+	}
+
 	public static boolean isImportFile() {
 		return importFile;
 	}
@@ -25,6 +30,8 @@ public class YrImportApplication {
 				importFile = true;
 			}else if(args[i].equals("-p")){
 				parseFile = true;
+			}else if(args[i].equals("-c")){
+				copyFileToServer = true;
 			}
 		}
 		
